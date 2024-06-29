@@ -36,6 +36,9 @@ resource "aws_network_acl" "VPC_Nacl" {
         rule_no = 300
         action = "allow"
     } 
+tags = {
+  Name = "EC2_NACL"
+}
 }
 
 resource "aws_security_group" "Security_Vpc" {
@@ -52,6 +55,9 @@ resource "aws_security_group" "Security_Vpc" {
     cidr_blocks = ["0.0.0.0/0"]
     protocol = "-1"
   }
+tags = {
+  Name = "EC2_Security"
+}
 }
 
 resource "aws_instance" "VPC_Instance" { 
